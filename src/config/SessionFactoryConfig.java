@@ -1,5 +1,7 @@
 package config;
 
+import org.hibernate.Session;
+
 public class SessionFactoryConfig {
 
     private static SessionFactoryConfig factoryConfig;
@@ -14,6 +16,10 @@ public class SessionFactoryConfig {
         }*/
 
       return   (null == factoryConfig) ? factoryConfig = new SessionFactoryConfig() : factoryConfig;
+    }
+
+    public Session getSession(){
+
     }
 
 }
