@@ -15,6 +15,7 @@ public class AppInitializer {
         customer.setAddress("Galle");
         customer.setSalary(25000);
 
+        session.save(customer);
 
     }
 }
