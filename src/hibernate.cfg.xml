@@ -8,6 +8,7 @@
     <property name="hibernate.connection.url">DATABASE_URL</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">Sas@1234</property>
+    <property name="hibernate.show_sql"> true</property>
 
   </session-factory>
 </hibernate-configuration>
