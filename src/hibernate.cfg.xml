@@ -6,5 +6,7 @@
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">DATABASE_URL</property>
+    <property name="hibernate.connection.username">root</property>
+
   </session-factory>
 </hibernate-configuration>
