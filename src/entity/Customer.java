@@ -2,8 +2,11 @@ package entity;
 
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
+//1. @Entity(name = "customer")
 @Entity
+@Table(name = "customer")
 public class Customer {
     private int id;
     private String name;
