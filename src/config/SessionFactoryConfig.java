@@ -1,6 +1,8 @@
 package config;
 
 import org.hibernate.Session;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class SessionFactoryConfig {
 
@@ -19,7 +21,12 @@ public class SessionFactoryConfig {
     }
 
     public Session getSession(){
+        //1.Create Service Registry
 
+        StandardServiceRegistry serviceRegistr
+                = new StandardServiceRegistryBuilder()
+                .configure()
+                .build();
     }
 
 }
