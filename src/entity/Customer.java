@@ -1,16 +1,24 @@
 package entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 //1. @Entity(name = "customer")
 @Entity
 @Table(name = "customer")
 public class Customer {
+
+    @Id //Tells Hibernate that this is the Primary Key of this Table
+    @Column(name = "customer_id")
     private int id;
+    @Column(name = "customer_name")
     private String name;
+    @Column(name = "customer_address")
     private String address;
+    @Column(name = "customer_salary")
     private double salary;
 
     public Customer() {}
