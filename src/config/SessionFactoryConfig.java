@@ -6,7 +6,12 @@ public class SessionFactoryConfig {
     private SessionFactoryConfig() {}
 
     public static SessionFactoryConfig getInstance(){
-
+        if (null == factoryConfig){
+            factoryConfig = new SessionFactoryConfig();
+            return factoryConfig;
+        }else {
+            return factoryConfig;
+        }
     }
 
 }
