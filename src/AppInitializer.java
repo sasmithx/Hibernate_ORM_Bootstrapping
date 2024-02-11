@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 public class AppInitializer {
     public static void main(String[] args) {
 
-       /* //1.save
+        //1.save
         Session session = SessionFactoryConfig
                 .getInstance()
                 .getSession();
@@ -20,8 +20,7 @@ public class AppInitializer {
         transaction.commit();
 
         session.close();
-        System.out.println("-----SAVE-----");*/
-
+        System.out.println("-----SAVE-----");
         //2. Get
         System.out.println("-----GET-----");
         Session getSession = SessionFactoryConfig
@@ -65,7 +64,6 @@ public class AppInitializer {
         deleteSession.delete(existingCustomerDelete);
         deleteTransaction.commit();
         deleteSession.close();
-
     }
 
     private static Customer getCustomer() {
