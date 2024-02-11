@@ -11,20 +11,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class SessionFactoryConfig {
 
     private static SessionFactoryConfig factoryConfig;
-    private SessionFactoryConfig() {}
+    private final SessionFactory sessionFactory;
 
-    public static SessionFactoryConfig getInstance(){
-        /*if (null == factoryConfig){
-            factoryConfig = new SessionFactoryConfig();
-            return factoryConfig;
-        }else {
-            return factoryConfig;
-        }*/
-
-      return   (null == factoryConfig) ? factoryConfig = new SessionFactoryConfig() : factoryConfig;
-    }
-
-    public Session getSession(){
+    private SessionFactoryConfig() {
         //1.Create Service Registry
 
         StandardServiceRegistry serviceRegistry
@@ -40,8 +29,23 @@ public class SessionFactoryConfig {
                 .build();
 
         //3.Create a SessionFactory
-        SessionFactory sessionFactory = metadata
+         sessionFactory = metadata
                 .buildSessionFactory();
+    }
+
+    public static SessionFactoryConfig getInstance(){
+        /*if (null == factoryConfig){
+            factoryConfig = new SessionFactoryConfig();
+            return factoryConfig;
+        }else {
+            return factoryConfig;
+        }*/
+
+      return   (null == factoryConfig) ? factoryConfig = new SessionFactoryConfig() : factoryConfig;
+    }
+
+    public Session getSession(){
+
 
        //creates and open the session
         return sessionFactory.openSession();
