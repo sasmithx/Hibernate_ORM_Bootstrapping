@@ -58,16 +58,21 @@ public class AppInitializer {
 
         System.out.println("------UPDATE------");
 
-       /* //4.delete
-        System.out.println("------DELETE------");
+       //4.delete
+       /* System.out.println("------DELETE------");
         Session deleteSession = SessionFactoryConfig.getInstance().getSession();
         Customer existingCusDelete = deleteSession.get(Customer.class, 1);
 
         Transaction deleteTransaction = deleteSession.beginTransaction();
         deleteSession.delete(existingCusDelete);
         deleteTransaction.commit();
-        deleteSession.close();
-        System.out.println("------DELETE------");*/
+        deleteSession.close();*/
+
+        customerRepository = new CustomerRepository();
+        customer.getAddress();
+        customerRepository.deleteCustomer(customer);
+
+        System.out.println("------DELETE------");
     }
 
     private static Customer getCustomer() {
