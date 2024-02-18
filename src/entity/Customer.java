@@ -100,7 +100,7 @@ public class Customer {
                 ", name=" + name +
                 ", address='" + address + '\'' +
                 ", salary=" + salary +
-                ", mobileNumbers=" + mobileNumbers +
+                /*", mobileNumbers=" + mobileNumbers +*/
                 ", createdDateTime=" + createdDateTime +
                 '}';
     }

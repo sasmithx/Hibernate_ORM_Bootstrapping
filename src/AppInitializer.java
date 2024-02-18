@@ -28,15 +28,20 @@ public class AppInitializer {
         customerRepository.saveCustomer(getCustomer());
         System.out.println("------SAVE APPINIT------");
 
-        /*//2.Get
-        System.out.println("------GET------");
+        //2.Get
+        /*System.out.println("------GET------");
         Session getsSession = SessionFactoryConfig.getInstance().getSession();
         Customer existingCustomer = getsSession.get(Customer.class,1);
         System.out.println("Existing Customer: " + existingCustomer);
         getsSession.close();
-        System.out.println("------GET------");
+        System.out.println("------GET------");*/
 
-        //3.update
+        customerRepository =  new CustomerRepository();
+        Customer customer = customerRepository.getCustomer(getCustomer().getId());
+        System.out.println(customer);
+        System.out.println("-----GET_ID-----");
+
+        /*//3.update
         System.out.println("------UPDATE------");
         Session updateSession = SessionFactoryConfig.getInstance().getSession();
         Customer existingCus = updateSession.get(Customer.class, 1);

@@ -39,4 +39,19 @@ public class CustomerRepository {
             throw e;
         }
     }
+
+    public boolean updateCutomer(Customer customer){
+        Transaction transaction = session.beginTransaction();
+        try{
+            session.update(customer);
+            transaction.commit();
+            session.close();
+            return true;
+        }catch(Exception e){
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
