@@ -7,6 +7,7 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfig {
 
@@ -24,13 +25,17 @@ public class SessionFactoryConfig {
         Metadata metadata = ;*/
 
         //3.Create a SessionFactory
-         sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder()
+         /*sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder()
                  .configure()
                  .build())
                  .addAnnotatedClass(Customer.class)
                  .getMetadataBuilder()
                  .build()
-                .buildSessionFactory();
+                .buildSessionFactory();*/
+         sessionFactory = new Configuration()
+                 .configure()
+                 .addAnnotatedClass(Customer.class)
+                 .buildSessionFactory();
     }
 
     public static SessionFactoryConfig getInstance(){
