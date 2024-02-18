@@ -13,28 +13,12 @@ public class AppInitializer {
     public static void main(String[] args) {
 
         //1.Save
-        /*System.out.println("------SAVE------");
-        Session session = SessionFactoryConfig.getInstance().getSession();
-
-        Transaction transaction = session.beginTransaction();
-
-        Customer customer = getCustomer();
-
-        session.save(customer);
-        transaction.commit();
-        session.close();*/
 
         CustomerRepository customerRepository = new CustomerRepository();
         customerRepository.saveCustomer(getCustomer());
         System.out.println("------SAVE APPINIT------");
 
         //2.Get
-        /*System.out.println("------GET------");
-        Session getsSession = SessionFactoryConfig.getInstance().getSession();
-        Customer existingCustomer = getsSession.get(Customer.class,1);
-        System.out.println("Existing Customer: " + existingCustomer);
-        getsSession.close();
-        System.out.println("------GET------");*/
 
         customerRepository =  new CustomerRepository();
         Customer customer = customerRepository.getCustomer(getCustomer().getId());
@@ -42,31 +26,20 @@ public class AppInitializer {
         System.out.println("-----GET_ID-----");
 
         //3.update
-        /*System.out.println("------UPDATE------");
-        Session updateSession = SessionFactoryConfig.getInstance().getSession();
-        Customer existingCus = updateSession.get(Customer.class, 1);
-
-        Transaction updateTransaction = updateSession.beginTransaction();
-        existingCus.setAddress("Matara");
-        updateSession.update(existingCus);
-        updateTransaction.commit();
-        updateSession.close();*/
 
         customerRepository = new CustomerRepository();
         customer.setAddress("Matara");
-        customerRepository.updateCutomer(customer);
+        boolean isUpdated = customerRepository.updateCutomer(customer);
+
+        if(isUpdated){
+            System.out.println("Customer Updated");
+        }else {
+            System.out.println("Update Failed");
+        }
 
         System.out.println("------UPDATE------");
 
        //4.delete
-       /* System.out.println("------DELETE------");
-        Session deleteSession = SessionFactoryConfig.getInstance().getSession();
-        Customer existingCusDelete = deleteSession.get(Customer.class, 1);
-
-        Transaction deleteTransaction = deleteSession.beginTransaction();
-        deleteSession.delete(existingCusDelete);
-        deleteTransaction.commit();
-        deleteSession.close();*/
 
         customerRepository = new CustomerRepository();
         customerRepository.deleteCustomer(customer);
@@ -95,7 +68,7 @@ public class AppInitializer {
         mobileNumbers.add(homeMobile);
         mobileNumbers.add(mobileNo);
         mobileNumbers.add(No);
-        //
+
         customer.setMobileNumbers(mobileNumbers);
         customer.setAddress("Rathnapura");
         customer.setSalary(65000.00);
