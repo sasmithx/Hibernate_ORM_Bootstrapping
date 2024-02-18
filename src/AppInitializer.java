@@ -69,7 +69,6 @@ public class AppInitializer {
         deleteSession.close();*/
 
         customerRepository = new CustomerRepository();
-        customer.getAddress();
         customerRepository.deleteCustomer(customer);
 
         System.out.println("------DELETE------");
