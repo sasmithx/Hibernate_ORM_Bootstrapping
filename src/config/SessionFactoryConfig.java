@@ -14,22 +14,22 @@ public class SessionFactoryConfig {
     private final SessionFactory sessionFactory;
 
     private SessionFactoryConfig() {
-        //1.Create Service Registry
+        /*//1.Create Service Registry
 
         StandardServiceRegistry serviceRegistry
-                = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
+                = ;
 
         //2.Create Metadata Object
 
-        Metadata metadata = new MetadataSources(serviceRegistry)
-                .addAnnotatedClass(Customer.class)
-                .getMetadataBuilder()
-                .build();
+        Metadata metadata = ;*/
 
         //3.Create a SessionFactory
-         sessionFactory = metadata
+         sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder()
+                 .configure()
+                 .build())
+                 .addAnnotatedClass(Customer.class)
+                 .getMetadataBuilder()
+                 .build()
                 .buildSessionFactory();
     }
 

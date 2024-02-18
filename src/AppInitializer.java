@@ -58,7 +58,7 @@ public class AppInitializer {
 
     private static Customer getCustomer() {
         Customer customer = new Customer();
-        customer.setId(2);
+        customer.setId(5);
         customer.setName(getNameIdentifier());
         //
         MobileNumber homeMobile = new MobileNumber();
