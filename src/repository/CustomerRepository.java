@@ -29,4 +29,14 @@ public class CustomerRepository {
             return -1;
         }
     }
+    public Customer getCustomer(int id) throws RuntimeException{
+        try{
+            Customer customer = session.get(Customer.class, id);
+            session.close();
+            return customer;
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

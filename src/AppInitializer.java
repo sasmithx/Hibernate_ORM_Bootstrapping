@@ -4,6 +4,7 @@ import embedded.NameIdentifier;
 import entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import repository.CustomerRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class AppInitializer {
     public static void main(String[] args) {
 
         //1.Save
-        System.out.println("------SAVE------");
+        /*System.out.println("------SAVE------");
         Session session = SessionFactoryConfig.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
@@ -21,8 +22,11 @@ public class AppInitializer {
 
         session.save(customer);
         transaction.commit();
-        session.close();
-        System.out.println("------SAVE------");
+        session.close();*/
+
+        CustomerRepository customerRepository = new CustomerRepository();
+        customerRepository.saveCustomer(getCustomer());
+        System.out.println("------SAVE APPINIT------");
 
         /*//2.Get
         System.out.println("------GET------");
