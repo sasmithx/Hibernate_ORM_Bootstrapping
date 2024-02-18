@@ -1,9 +1,6 @@
-import config.SessionFactoryConfig;
 import embedded.MobileNumber;
 import embedded.NameIdentifier;
-import entity.Customer;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import entity.CustomerOld;
 import repository.CustomerRepository;
 
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class AppInitializer {
         //2.Get
 
         customerRepository =  new CustomerRepository();
-        Customer customer = customerRepository.getCustomer(getCustomer().getId());
+        CustomerOld customer = customerRepository.getCustomer(getCustomer().getId());
         System.out.println(customer);
         System.out.println("-----GET_ID-----");
 
@@ -47,11 +44,11 @@ public class AppInitializer {
         System.out.println("------DELETE------");
     }
 
-    private static Customer getCustomer() {
-        Customer customer = new Customer();
+    private static CustomerOld getCustomer() {
+        CustomerOld customer = new CustomerOld();
         customer.setId(6);
         customer.setName(getNameIdentifier());
-        //
+
         MobileNumber homeMobile = new MobileNumber();
         homeMobile.setType("HOME");
         homeMobile.setMobileNo("0411235997");

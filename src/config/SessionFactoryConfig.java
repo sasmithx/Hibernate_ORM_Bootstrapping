@@ -1,12 +1,8 @@
 package config;
 
-import entity.Customer;
+import entity.CustomerOld;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfig {
@@ -34,7 +30,7 @@ public class SessionFactoryConfig {
                 .buildSessionFactory();*/
          sessionFactory = new Configuration()
                  .configure()
-                 .addAnnotatedClass(Customer.class)
+                 .addAnnotatedClass(CustomerOld.class)
                  .buildSessionFactory();
     }
 
