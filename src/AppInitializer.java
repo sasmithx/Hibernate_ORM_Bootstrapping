@@ -41,8 +41,8 @@ public class AppInitializer {
         System.out.println(customer);
         System.out.println("-----GET_ID-----");
 
-        /*//3.update
-        System.out.println("------UPDATE------");
+        //3.update
+        /*System.out.println("------UPDATE------");
         Session updateSession = SessionFactoryConfig.getInstance().getSession();
         Customer existingCus = updateSession.get(Customer.class, 1);
 
@@ -50,10 +50,15 @@ public class AppInitializer {
         existingCus.setAddress("Matara");
         updateSession.update(existingCus);
         updateTransaction.commit();
-        updateSession.close();
+        updateSession.close();*/
+
+        customerRepository = new CustomerRepository();
+        customer.setAddress("Matara");
+        customerRepository.updateCutomer(customer);
+
         System.out.println("------UPDATE------");
 
-        //4.delete
+       /* //4.delete
         System.out.println("------DELETE------");
         Session deleteSession = SessionFactoryConfig.getInstance().getSession();
         Customer existingCusDelete = deleteSession.get(Customer.class, 1);
@@ -67,7 +72,7 @@ public class AppInitializer {
 
     private static Customer getCustomer() {
         Customer customer = new Customer();
-        customer.setId(5);
+        customer.setId(6);
         customer.setName(getNameIdentifier());
         //
         MobileNumber homeMobile = new MobileNumber();
